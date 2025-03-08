@@ -1,0 +1,25 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="divPrincipal">
+        <h1>Apple store</h1>
+        <img src="{% static 'listApp/apple.png' %}" alt="Kitten picture" width="15%">
+        <p>List of favourite products: </p>
+    </div>
+</body>
+</html>
+
+<style>
+    #divPrincipal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
