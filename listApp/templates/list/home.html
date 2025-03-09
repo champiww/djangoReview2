@@ -1,20 +1,4 @@
-{%load static%}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div id="divPrincipal">
-        <h1>Apple store</h1>
-        <img src="{% static 'listApp/apple.png' %}" alt="Kitten picture" width="15%">
-        <p>List of favourite products: </p>
-    </div>
-</body>
-</html>
-
+{% extends "list/base.html" %} {% load static %} {% block content %}
 <style>
     #divPrincipal {
         display: flex;
@@ -23,3 +7,15 @@
         justify-content: center;
     }
 </style>
+
+<div id="divPrincipal">
+    <h1>Apple store</h1>
+    <img src="{% static 'listApp/apple.png' %}" alt="Kitten picture" width="15%">
+    <p>List of favourite products: </p>
+    {% for product in products %}
+    <a href="{{product.get_absolute_url}}"><h4>{{product.name}}</h4></a>
+    <img src="{{product.picture.url}}" alt="Product picture" width="150em">
+    <br>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -17,6 +17,9 @@ class Product(models.Model):
     slug = models.SlugField(default='', null=False, db_index=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
+    def get_absolute_url(self):
+        return reverse("product-detail", args=[self.slug])
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super().save(*args, **kwargs)
